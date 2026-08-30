@@ -20,10 +20,9 @@ def main():
     args = parser.parse_args()
 
     model = whisper.load_model("medium")
-    resultado = model.transcribe(args.file, language=args.language)
-
     print(f"Working with file: {args.file}...")
     print("Transcribing...")
+    resultado = model.transcribe(args.file, language=args.language)
     pyperclip.copy(resultado)
 
     print(resultado["text"])
